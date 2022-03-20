@@ -1,0 +1,20 @@
+/* Font - Oswald */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+/* Font - Quattrocento */
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .flexContainer{
+        @apply flex flex-col px-8 md:px-32 lg:px-52
+    }
+    .title {
+        @apply uppercase text-3xl mb-3 font-secondary font-bold
+    }
+    .actionbtn {
+        @apply border-2 rounded-md text-white bg-slate-400 font-primary p-2 hover:scale-110 tracking-wider
+    }
+}
