@@ -15,6 +15,9 @@
         @apply uppercase text-3xl mb-3 font-secondary font-bold
     }
     .actionbtn {
-        @apply border-2 rounded-md text-white bg-slate-400 font-primary p-2 hover:scale-110 tracking-wider
+        @apply border-2 rounded-md text-white bg-slate-400 font-primary p-2 hover:scale-110 tracking-wider transition ease-in
+    }
+    .type {
+        @apply border rounded-lg px-2  py-1 m-1 hover:text-white transition ease-in
     }
 }

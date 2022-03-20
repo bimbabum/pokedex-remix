@@ -40,7 +40,7 @@ export default function PokemonDetail({pokemon}){
                             {pokemon.types.map((type,index) => (
                                 <span 
                                     key={index}
-                                    className={`border border-${type} rounded-lg px-2  py-1 m-1 hover:text-white hover:bg-${type}`}
+                                    className={`type border-${type} hover:bg-${type}`}
                                 >{capitalFirstLetter(type)}</span>)
                             )}
                         </div>
@@ -96,24 +96,3 @@ function MoveCard({move}) {
         </div>
     )
 }
-
-{/* <div className={'w-96 h-2 border border-gray-500 ' + `bg-linear5`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear10`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear15`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear20`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear25`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear30`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear35`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear40`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear45`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear50`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear55`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear60`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear65`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear70`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear75`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear80`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear85`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear90`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear95`}></div>
-<div className={'w-96 h-2 border border-gray-500 ' + `bg-linear100`}></div> */}

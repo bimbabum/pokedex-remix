@@ -7,7 +7,6 @@ import {
   ScrollRestoration,
 } from "remix";
 import styles from './tailwind.css'
-// import SearchBar from "./components/SearchBar";
 import NavBar from "./components/NavBar";
 import {usePokemon} from './pokemonAPI/context'
 

@@ -1,4 +1,4 @@
-import { useLoaderData, Link, useOutletContext } from 'remix'
+import { useLoaderData} from 'remix'
 import {searchPokemon} from '../pokemonAPI/pokemon'
 import SearchResults from '../components/SearchResults'
 import MyPokemon from '../components/MyPokemon'
@@ -12,8 +12,7 @@ export const loader = (props) => {
 
 export default function Index() {
   const data = useLoaderData()
-  const {pokemonOwned} = useOutletContext()
-  console.log('pokemon list',pokemonOwned)
+
   return (
     <div>
       <SearchResults data={data}/>
