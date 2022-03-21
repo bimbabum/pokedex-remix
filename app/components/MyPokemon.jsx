@@ -5,6 +5,15 @@ export default function MyPokemon(){
     const {pokemonOwned} = useOutletContext()
     const pokemonArr = Array.from(pokemonOwned.values())
 
+    if (!pokemonArr.length) {
+        return (
+            <div className='flexContainer'>
+                <h2 className='title m-auto'>Pokemon Owned</h2>
+                <span className='text-center'> You currently don't own any Pokemon</span>
+            </div>
+        )
+    }
+
     return (
         <div className='flexContainer'>
             <h2 className='title m-auto'>Pokemon Owned</h2>

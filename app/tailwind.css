@@ -577,6 +577,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin: 0.25rem;
 }
 
+.mx-3{
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
 .mb-1{
   margin-bottom: 0.25rem;
 }
@@ -675,6 +680,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .items-center{
   align-items: center;
+}
+
+.justify-end{
+  justify-content: flex-end;
+}
+
+.justify-center{
+  justify-content: center;
 }
 
 .justify-between{

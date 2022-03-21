@@ -9,7 +9,8 @@ const insertPokemon = async(pokemon) => {
     {name: pokemon.name,
     pokemon_id: pokemon.id,
     types: pokemon.types,
-    url: pokemon.url
+    url: pokemon.url,
+    user_id: pokemon.user_id
     },
   ])
   if (result.error) {
@@ -31,24 +32,31 @@ const deletePokemon = async(id) => {
 
 export function usePokemon(){
     const [pokemonOwned,setpokemonOwned] = useState(new Map())
+    const [user, setUser] = useState('')
 
     //fetch data from supabase
-    const fetchData = async() => {
-      const {data,error} = await supabase.from('pokemon_own').select('*')
-      if (error) {
-        console.log(error)
-      }
-      const dataMap = data.map(ele => [ele.pokemon_id, {
-        name: ele.name,
-        id: ele.pokemon_id,
-        url: ele.url,
-        types: ele.types
-      }])
-      setpokemonOwned(new Map(dataMap))
-    }
+    const userSupabase = supabase.auth.user()
+
     useEffect(()=>{
-      fetchData()
-    },[])
+      if (userSupabase) setUser(userSupabase)
+      // console.log(userSupabase)
+      const fetchData = async() => {
+        const {data,error} = await supabase.from('pokemon_own').select('*').eq('user_id',user.id)
+        if (error) {
+          console.log(error)
+        }
+        const dataMap = data.map(ele => [ele.pokemon_id, {
+          name: ele.name,
+          id: ele.pokemon_id,
+          url: ele.url,
+          types: ele.types
+        }])
+        setpokemonOwned(new Map(dataMap))
+      }
+
+      user && fetchData()
+      
+    },[user, user.id, userSupabase])
   
     const addPokemon = async(data) => {
       const newList = new Map(pokemonOwned)
@@ -57,7 +65,8 @@ export function usePokemon(){
         id: data.id,
         url: data.url,
         abilities: data.abilities,
-        types: data.types
+        types: data.types,
+        user_id: user.id
       }
       newList.set(data.id,newPokemon)
       setpokemonOwned(newList)
@@ -76,7 +85,7 @@ export function usePokemon(){
       return false
     }
   
-    return {pokemonOwned, addPokemon, removePokemon, ownPokemon}
+    return {pokemonOwned, addPokemon, removePokemon, ownPokemon, user}
   }
 
 
