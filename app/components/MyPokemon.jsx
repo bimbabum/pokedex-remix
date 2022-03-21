@@ -1,9 +1,10 @@
-import { useOutletContext, Link } from "remix";
+import { useOutletContext, Link, useLoaderData } from "remix";
 import {capitalFirstLetter} from '../utils'
 
 export default function MyPokemon(){
     const {pokemonOwned} = useOutletContext()
     const pokemonArr = Array.from(pokemonOwned.values())
+
     return (
         <div className='flexContainer'>
             <h2 className='title m-auto'>Pokemon Owned</h2>
